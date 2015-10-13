@@ -1,0 +1,33 @@
+body {
+	background-color: #F0F2F7;
+}
+
+h1, h2 {
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	color: #F26D6B;
+}
+
+div.photos {
+	padding-top: 75px;
+	max-width: 1100px;
+	min-width: 790px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+article.left {
+	float: left;
+	max-width: 450px;
+	margin-left: 150px;
+}
+
+article.right {
+	float: right;
+	max-width: 450px;
+	margin-right: 150px;
+}
+
+img {
+	border: 5px solid #5E5C58;
+}
