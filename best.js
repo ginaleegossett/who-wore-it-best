@@ -55,18 +55,48 @@ function compareImg () {
 //calling the function to compare the photos
 compareImg();
 
+
+
+
+	var data = {
+		labels: ["Andy", "Baekyoung", "Danny", "Dongwan", "Eric", "Heejun", "Hyesung", "Jaeduc", "Jaewon", "Jiwon", "Jiyong", "Junjin", "Minwoo", "Sunghoon", "Tony"],
+		datasets: [
+			{
+				label: "Andy",
+				fillColor: "#363535",
+				strokeColor: "#363535",
+				highlightFill: "#363535",
+				highlightStroke: "#363535",
+				data: [popstars[0].votes, popstars[1].votes, popstars[2].votes, popstars[3].votes, popstars[4].votes,
+				popstars[5].votes, popstars[6].votes, popstars[7].votes, popstars[8].votes, popstars[9].votes, popstars[10].votes,
+				popstars[11].votes, popstars[12].votes, popstars[13].votes, popstars[14].votes]
+			}
+
+			]
+	};
+
+function mkChart() {
+
+	var barChart = document.getElementById('hairstyle').getContext('2d');
+	var hairChart = new Chart(barChart).Bar(data);
+};
+
+mkChart();
+
 //this is a callback function(the function then {} compareImg();), it allows multiple methods to be excuted inside this function
 boxLeft.addEventListener('click', function() {
 	popstars[randomPhoto1].votes += 1;
+	data.datasets[0].data[randomPhoto1] += 1;
 	console.log(popstars[randomPhoto1].cuteyName + " has " + popstars[randomPhoto1].votes + " votes");
 	compareImg();
+	mkChart();
 });
 
 boxRight.addEventListener('click',function() {
 	popstars[randomPhoto2].votes += 1;
+	data.datasets[0].data[randomPhoto2] +=1;
 	console.log(popstars[randomPhoto2].cuteyName + " has " + popstars[randomPhoto2].votes + " votes");
 	compareImg();
+	mkChart();
 });
-
-
-
+//In var data, dataset is an array with a single object.  On line 88 and 97 we say datasets[0] b/c there is only a single object.
