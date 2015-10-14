@@ -1,11 +1,11 @@
 body {
-	background-color: #F0F2F7;
+	background-color: #092A37;
 }
 
 h1, h2 {
 	font-family: 'Pacifico', cursive;
 	text-align: center;
-	color: #F26D6B;
+	color: #58A5C3;
 }
 
 div.photos {
@@ -29,5 +29,5 @@ article.right {
 }
 
 img {
-	border: 5px solid #5E5C58;
+	border: 5px solid #1D8CB7;
 }
