@@ -55,26 +55,22 @@ function compareImg () {
 //calling the function to compare the photos
 compareImg();
 
+//creating a new variable to pull info to push into the chart.js, create an array called labels, then assign the labels to a dataset, which each label gets matched to a counterpart in the data (popstars[].votes)
+var data = {
+	labels: ["Andy", "Baekyoung", "Danny", "Dongwan", "Eric", "Heejun", "Hyesung", "Jaeduc", "Jaewon", "Jiwon", "Jiyong", "Junjin", "Minwoo", "Sunghoon", "Tony"],
+	datasets: [
+		{
+			label: "Andy",
+			fillColor: "#1D8CB7",
+			strokeColor: "#156584",
+			highlightFill: "#363535",
+			highlightStroke: "#363535",
+			data: [popstars[0].votes, popstars[1].votes, popstars[2].votes, popstars[3].votes, popstars[4].votes, popstars[5].votes, popstars[6].votes, popstars[7].votes, popstars[8].votes, popstars[9].votes, popstars[10].votes,popstars[11].votes, popstars[12].votes, popstars[13].votes, popstars[14].votes]
+		}
+	]
+};
 
-
-
-	var data = {
-		labels: ["Andy", "Baekyoung", "Danny", "Dongwan", "Eric", "Heejun", "Hyesung", "Jaeduc", "Jaewon", "Jiwon", "Jiyong", "Junjin", "Minwoo", "Sunghoon", "Tony"],
-		datasets: [
-			{
-				label: "Andy",
-				fillColor: "#363535",
-				strokeColor: "#363535",
-				highlightFill: "#363535",
-				highlightStroke: "#363535",
-				data: [popstars[0].votes, popstars[1].votes, popstars[2].votes, popstars[3].votes, popstars[4].votes,
-				popstars[5].votes, popstars[6].votes, popstars[7].votes, popstars[8].votes, popstars[9].votes, popstars[10].votes,
-				popstars[11].votes, popstars[12].votes, popstars[13].votes, popstars[14].votes]
-			}
-
-			]
-	};
-
+//making a function that the methods holding the barchart getelement and the creating a chart type(barChart)
 function mkChart() {
 
 	var barChart = document.getElementById('hairstyle').getContext('2d');
@@ -94,9 +90,9 @@ boxLeft.addEventListener('click', function() {
 
 boxRight.addEventListener('click',function() {
 	popstars[randomPhoto2].votes += 1;
-	data.datasets[0].data[randomPhoto2] +=1;
+	data.datasets[0].data[randomPhoto2] += 1;
 	console.log(popstars[randomPhoto2].cuteyName + " has " + popstars[randomPhoto2].votes + " votes");
 	compareImg();
 	mkChart();
 });
-//In var data, dataset is an array with a single object.  On line 88 and 97 we say datasets[0] b/c there is only a single object.
+//In var data, dataset is an array with a single object.  In each event listener we add a "data.datasets[0].data[randomPhotox]" underthe vote talley we say datasets[0] b/c there is only a single object.
