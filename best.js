@@ -24,10 +24,7 @@ var minW = new Person('Minwoo Lee', 'img/Minwoo.jpg');
 var sungH = new Person('Sunghoon Kang', 'img/Sunghoon.jpeg');
 var tony = new Person('Tony An', 'img/Tony.jpg');
 
-//tracker should be an object....
-// var tracker() = {}
-
-//randomizer (this number is being returned inside the compareImg function)
+// randomizer (this number is being returned inside the compareImg function)
 var randImg = function() {
 	return(Math.floor(Math.random() * popstars.length));
 	console.log(randImg());
@@ -35,7 +32,6 @@ var randImg = function() {
 
 var boxLeft = document.getElementById('left');
 var boxRight = document.getElementById('right');
-
 
 //the rando number is being called within this function, this variable (randomPhoto1) is a number now
 //telling the random number to go to to the randomphotox variable, which then becomes part of the arary
@@ -55,8 +51,7 @@ while (randomPhoto1 === randomPhoto2);
 //calling the function to compare the photos
 compareImg();
 
-
-//this is a callback function(the function then {} compareImg();)
+//this is a callback function(the function then {} compareImg();), it allows multiple methods to be excuted inside this function
 boxLeft.addEventListener('click', function() {
 	popstars[randomPhoto1].votes +=1;
 	console.log(popstars[randomPhoto1].name + " has " + popstars[randomPhoto1].votes + " votes");
