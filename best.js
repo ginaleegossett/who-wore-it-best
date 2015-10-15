@@ -83,17 +83,45 @@ mkChart();
 boxLeft.addEventListener('click', function() {
 	popstars[randomPhoto1].votes += 1;
 	data.datasets[0].data[randomPhoto1] += 1;
-	console.log(popstars[randomPhoto1].cuteyName + " has " + popstars[randomPhoto1].votes + " votes");
+	// console.log(popstars[randomPhoto1].cuteyName + " has " + popstars[randomPhoto1].votes + " votes");
 	compareImg();
 	mkChart();
+	createLocal();
+	checkLocal();
 });
 
 boxRight.addEventListener('click',function() {
 	popstars[randomPhoto2].votes += 1;
 	data.datasets[0].data[randomPhoto2] += 1;
-	console.log(popstars[randomPhoto2].cuteyName + " has " + popstars[randomPhoto2].votes + " votes");
+	// console.log(popstars[randomPhoto2].cuteyName + " has " + popstars[randomPhoto2].votes + " votes");
 	compareImg();
 	mkChart();
+	createLocal();
+	checkLocal();
 });
 //In var data, dataset is an array with a single object.  In each event listener we add a "data.datasets[0].data[randomPhotox]" underthe vote talley we say datasets[0] b/c there is only a single object.
 
+//Moved the two methods below from inside the eventlistener to global, because it needs to be called when the page is being refreshed???? (ASK SCOTT WHY)
+	checkLocal();
+	mkChart();
+
+//creating the local storage
+function createLocal () {
+	//this is pulling the vote data from our data variable we used for the chart
+	var dataStore = JSON.stringify(data.datasets[0].data);
+		//the for loop will then go through the datasets.data array to get the votes out
+		//this will check to see if data.datasets.data[i].vote !=0 (does not equal 0), if !0(not 0) the array will save to local storage
+	for (var i = 0; i < data.datasets[0].data.length; i++) {
+		if (data.datasets[0].data[i].vote !== 0) {
+			localStorage.setItem('voteData', dataStore);
+		}
+	};
+}
+
+function checkLocal() {
+	if (localStorage.getItem('voteData')) {
+		var getStore = localStorage.getItem('voteData');
+		getStore = JSON.parse(getStore);
+		data.datasets[0].data = getStore;
+	};
+}
