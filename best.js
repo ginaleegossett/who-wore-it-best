@@ -96,3 +96,4 @@ boxRight.addEventListener('click',function() {
 	mkChart();
 });
 //In var data, dataset is an array with a single object.  In each event listener we add a "data.datasets[0].data[randomPhotox]" underthe vote talley we say datasets[0] b/c there is only a single object.
+
