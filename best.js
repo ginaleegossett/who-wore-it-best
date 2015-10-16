@@ -87,7 +87,6 @@ boxLeft.addEventListener('click', function() {
 	compareImg();
 	mkChart();
 	createLocal();
-	checkLocal();
 });
 
 boxRight.addEventListener('click',function() {
@@ -97,11 +96,10 @@ boxRight.addEventListener('click',function() {
 	compareImg();
 	mkChart();
 	createLocal();
-	checkLocal();
 });
 //In var data, dataset is an array with a single object.  In each event listener we add a "data.datasets[0].data[randomPhotox]" underthe vote talley we say datasets[0] b/c there is only a single object.
 
-//Moved the two methods below from inside the eventlistener to global, because it needs to be called when the page is being refreshed???? (ASK SCOTT WHY)
+//Moved the two methods below from inside the eventlistener to global, because it needs to be called when the page is being refreshed.
 	checkLocal();
 	mkChart();
 
